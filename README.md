@@ -1,8 +1,8 @@
-# ÉTHER — Haute Parfumerie Experience
+# ÉTHER
 
-An immersive, high-performance experiential landing page for a fictional century-old Grasse perfume house. Because scent is invisible, this digital experience translates the sensory into the visual using advanced WebGL simulations, fluid typography, and motion storytelling.
+An immersive, high-performance experiential landing page for a fictional century-old perfume house from Grasse. Since fragrance exists beyond the visual, this digital experience transforms the intangible into an engaging visual journey through advanced WebGL simulations, fluid typography, and motion-driven storytelling.
 
-Developed with a strict focus on modern web performance and core web vitals, achieving a flawless balance between creative frontend engineering and technical optimization.
+Built with a strong focus on modern web performance and Core Web Vitals, balancing immersive visual experiences with efficient frontend engineering and technical optimization.
 
 ---
 
