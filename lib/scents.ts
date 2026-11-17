@@ -129,3 +129,13 @@ export const SCENTS: Scent[] = [
 export function getScent(slug: string): Scent | undefined {
   return SCENTS.find((s) => s.slug === slug);
 }
+
+/** The scents either side of this one, wrapping around, for the previous/next links on a scent page. */
+export function adjacentScents(slug: string): { prev: Scent; next: Scent } | undefined {
+  const index = SCENTS.findIndex((s) => s.slug === slug);
+  if (index === -1) return undefined;
+  return {
+    prev: SCENTS[(index + SCENTS.length - 1) % SCENTS.length],
+    next: SCENTS[(index + 1) % SCENTS.length],
+  };
+}

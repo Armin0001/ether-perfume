@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SCENTS, getScent } from "@/lib/scents";
+import { SCENTS, adjacentScents, getScent } from "@/lib/scents";
 import Nav from "@/components/Nav";
 import SmoothScroll from "@/components/SmoothScroll";
 import Footer from "@/components/Footer";
@@ -36,9 +36,7 @@ export default async function ScentPage({
   const scent = getScent((await params).scent);
   if (!scent) notFound();
 
-  const index = SCENTS.findIndex((s) => s.slug === scent.slug);
-  const prev = SCENTS[(index + SCENTS.length - 1) % SCENTS.length];
-  const next = SCENTS[(index + 1) % SCENTS.length];
+  const { prev, next } = adjacentScents(scent.slug)!; // the scent exists, so it has neighbours
 
   return (
     <>
