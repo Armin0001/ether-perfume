@@ -1,5 +1,9 @@
 # ÉTHER
 
+[![CI](https://github.com/Armin0001/ether-perfume/actions/workflows/ci.yml/badge.svg)](https://github.com/Armin0001/ether-perfume/actions/workflows/ci.yml)
+
+**Live demo: [ether-perfume-qtox.vercel.app](https://ether-perfume-qtox.vercel.app)**
+
 An immersive, high-performance experiential landing page for a fictional century-old perfume house from Grasse. Since fragrance exists beyond the visual, this digital experience transforms the intangible into an engaging visual journey through advanced WebGL simulations, fluid typography, and motion-driven storytelling.
 
 Built with a strong focus on modern web performance and Core Web Vitals, balancing immersive visual experiences with efficient frontend engineering and technical optimization.
@@ -50,13 +54,48 @@ Built with close adherence to Google Chrome's `modern-web-guidance` framework to
 
 ---
 
+## 🧪 Tests
+
+The scent catalog in [`lib/scents.ts`](lib/scents.ts) drives the statically generated scent pages, the flacon gradients and the WebGL vapor colours, so it has a contract, written as 11 [Vitest](https://vitest.dev) tests in [`lib/scents.test.ts`](lib/scents.test.ts):
+
+* slugs are unique and URL-safe (each one becomes `/collection/<slug>`),
+* every colour is a six-digit hex value that both CSS and `THREE.Color` accept,
+* every scent has a top, heart and base tier, a price and the copy its page renders,
+* the previous / next links on a scent page wrap around at both ends of the collection.
+
+```bash
+npm test
+```
+
+CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs ESLint, the TypeScript check, the tests and a production build on every push and pull request.
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
-Ensure you have Node.js installed on your machine.
+Node.js 20.9 or newer (what Next.js 16 requires).
 
 ### Installation
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/your-username/ether-parfumerie.git](https://github.com/your-username/ether-parfumerie.git)
-   cd ether-parfumerie
+
+```bash
+git clone https://github.com/Armin0001/ether-perfume.git
+cd ether-perfume
+npm install
+npm run dev        # http://localhost:3000
+```
+
+### Other commands
+
+```bash
+npm run build      # production build (all pages are pre-rendered)
+npm run lint       # ESLint
+npm run typecheck  # TypeScript, no emit
+npm test           # unit tests
+```
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
